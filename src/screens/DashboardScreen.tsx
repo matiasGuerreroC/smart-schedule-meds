@@ -31,9 +31,9 @@ function minutesToTimeDisplay(minutes: number): string {
 
 function getGreeting(): string {
   const h = new Date().getHours();
-  if (h < 12) return 'Good morning';
-  if (h < 18) return 'Good afternoon';
-  return 'Good evening';
+  if (h < 12) return 'Buenos días';
+  if (h < 18) return 'Buenas tardes';
+  return 'Buenas noches';
 }
 
 function formatDoseTime(iso: string): string {
@@ -141,7 +141,7 @@ export default function DashboardScreen({
           <View style={styles.sleepBanner}>
             <MaterialIcons name="bedtime" size={20} color={colors.secondary} />
             <Text style={styles.sleepBannerText}>
-              Your sleep: {minutesToTimeDisplay(sleepWindow.startMinutes)} -{' '}
+              Tu sueño: {minutesToTimeDisplay(sleepWindow.startMinutes)} -{' '}
               {minutesToTimeDisplay(sleepWindow.endMinutes)}
             </Text>
             <TouchableOpacity
@@ -154,7 +154,7 @@ export default function DashboardScreen({
         </View>
 
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Active Treatments</Text>
+          <Text style={styles.sectionTitle}>Tratamientos Activos</Text>
           <ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}
@@ -167,7 +167,7 @@ export default function DashboardScreen({
                   size={32}
                   color={colors.outlineVariant}
                 />
-                <Text style={styles.emptyText}>No active treatments</Text>
+                <Text style={styles.emptyText}>Sin tratamientos activos</Text>
               </View>
             )}
             {medications.map((med) => {
@@ -185,7 +185,7 @@ export default function DashboardScreen({
                     <View style={styles.medCardInfo}>
                       <Text style={styles.medName}>{med.name}</Text>
                       <Text style={styles.medDoses}>
-                        {takenCount} of {doseCount} doses taken
+                        {takenCount} de {doseCount} dosis tomadas
                       </Text>
                     </View>
                     <View style={styles.medIcon}>
@@ -210,7 +210,7 @@ export default function DashboardScreen({
                       size={18}
                       color={colors.onSurfaceVariant}
                     />
-                    <Text style={styles.deleteText}>Delete</Text>
+                    <Text style={styles.deleteText}>Eliminar</Text>
                   </TouchableOpacity>
                 </View>
               );
@@ -219,12 +219,12 @@ export default function DashboardScreen({
         </View>
 
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Today's Timeline</Text>
+          <Text style={styles.sectionTitle}>Línea de Tiempo</Text>
           <View style={styles.timeline}>
             {todaySchedules.length === 0 && (
               <View style={styles.emptyTimelineCard}>
                 <Text style={styles.emptyText}>
-                  No pending doses for today
+                  Sin dosis pendientes para hoy
                 </Text>
               </View>
             )}
@@ -262,7 +262,7 @@ export default function DashboardScreen({
                           {formatDoseTime(dose.scheduledTime)}
                         </Text>
                         <Text style={styles.doseMedName}>
-                          {med?.name ?? 'Unknown'}
+                          {med?.name ?? 'Desconocido'}
                         </Text>
                       </View>
                       {proximity === 'wake' && (
@@ -273,7 +273,7 @@ export default function DashboardScreen({
                             color={colors.onPrimaryContainer}
                           />
                           <Text style={styles.badgeWakeText}>
-                            Right After Waking
+                            Al Despertar
                           </Text>
                         </View>
                       )}
@@ -285,13 +285,13 @@ export default function DashboardScreen({
                             color={colors.onTertiaryContainer}
                           />
                           <Text style={styles.badgeBedText}>
-                            Before Bed
+                            Antes de Dormir
                           </Text>
                         </View>
                       )}
                       {!proximity && (
                         <View style={styles.badgePending}>
-                          <Text style={styles.badgePendingText}>Pending</Text>
+                          <Text style={styles.badgePendingText}>Pendiente</Text>
                         </View>
                       )}
                     </View>
@@ -305,7 +305,7 @@ export default function DashboardScreen({
                           size={18}
                           color={colors.onPrimary}
                         />
-                        <Text style={styles.takeButtonText}>Take Now</Text>
+                        <Text style={styles.takeButtonText}>Tomar ahora</Text>
                       </TouchableOpacity>
                       <TouchableOpacity
                         style={styles.snoozeButton}
@@ -316,7 +316,7 @@ export default function DashboardScreen({
                           size={18}
                           color={colors.onSurfaceVariant}
                         />
-                        <Text style={styles.snoozeButtonText}>Snooze 15m</Text>
+                        <Text style={styles.snoozeButtonText}>Posponer 15 min</Text>
                       </TouchableOpacity>
                     </View>
                   </View>
@@ -338,19 +338,19 @@ export default function DashboardScreen({
       <View style={styles.bottomNav}>
         <View style={styles.navItemActive}>
           <MaterialIcons name="calendar-today" size={22} color={colors.onPrimaryContainer} />
-          <Text style={styles.navLabelActive}>Schedule</Text>
+          <Text style={styles.navLabelActive}>Programa</Text>
         </View>
         <View style={styles.navItem}>
           <MaterialIcons name="medication" size={22} color={colors.onSurfaceVariant} />
-          <Text style={styles.navLabel}>Meds</Text>
+          <Text style={styles.navLabel}>Medicamentos</Text>
         </View>
         <View style={styles.navItem}>
           <MaterialIcons name="history" size={22} color={colors.onSurfaceVariant} />
-          <Text style={styles.navLabel}>History</Text>
+          <Text style={styles.navLabel}>Historial</Text>
         </View>
         <View style={styles.navItem}>
           <MaterialIcons name="analytics" size={22} color={colors.onSurfaceVariant} />
-          <Text style={styles.navLabel}>Health</Text>
+          <Text style={styles.navLabel}>Salud</Text>
         </View>
       </View>
     </View>

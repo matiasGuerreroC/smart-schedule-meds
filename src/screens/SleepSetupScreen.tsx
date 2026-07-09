@@ -89,15 +89,15 @@ export default function SleepSetupScreen({ onComplete }: Props) {
 
       <View style={styles.content}>
         <View style={styles.header}>
-          <Text style={styles.title}>Configure Your Sleep Window</Text>
+          <Text style={styles.title}>Configura tu Ventana de Sueño</Text>
           <Text style={styles.subtitle}>
-            We adjust your medication schedule to protect your recovery cycles.
+            Ajustamos tu horario de medicación para proteger tus ciclos de descanso.
           </Text>
         </View>
 
         <View style={styles.dialOuter}>
           <View style={styles.dialInner}>
-            <Text style={styles.dialLabel}>SLEEP DURATION</Text>
+            <Text style={styles.dialLabel}>DURACIÓN DEL SUEÑO</Text>
             <Text style={styles.dialValue}>
               {sleepDurationHours}h {String(sleepDurationMins).padStart(2, '0')}m
             </Text>
@@ -111,7 +111,7 @@ export default function SleepSetupScreen({ onComplete }: Props) {
           >
             <MaterialIcons name="nights-stay" size={20} color={colors.primary} />
             <Text style={styles.timeButtonText}>
-              Bedtime: {formatTime(startDate)}
+              Acostarse: {formatTime(startDate)}
             </Text>
           </TouchableOpacity>
 
@@ -121,7 +121,7 @@ export default function SleepSetupScreen({ onComplete }: Props) {
           >
             <MaterialIcons name="wb-sunny" size={20} color={colors.tertiaryContainer} />
             <Text style={styles.timeButtonText}>
-              Wake up: {formatTime(endDate)}
+              Despertarse: {formatTime(endDate)}
             </Text>
           </TouchableOpacity>
         </View>
@@ -147,7 +147,7 @@ export default function SleepSetupScreen({ onComplete }: Props) {
       <View style={styles.bottomAction}>
         <TouchableOpacity style={styles.primaryButton} onPress={handleSave}>
           <Text style={styles.primaryButtonText}>
-            Set Sleep Window & Continue
+            Guardar y Continuar
           </Text>
         </TouchableOpacity>
       </View>

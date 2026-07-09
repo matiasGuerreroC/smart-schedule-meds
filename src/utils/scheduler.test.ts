@@ -13,8 +13,8 @@ function runScenario(
   durationDays: number
 ) {
   console.log(`\n=== ${label} ===`);
-  console.log(`  Sleep: ${sleepStart} - ${sleepEnd}`);
-  console.log(`  Cada: ${frequencyHours}h, Duración: ${durationDays}días`);
+  console.log('  Sueño: ${sleepStart} - ${sleepEnd}');
+  console.log(`  Frecuencia: ${frequencyHours}h, Duración: ${durationDays} días`);
 
   const schedules = generateSmartSchedule({
     medicationId: 'test-med',
@@ -60,7 +60,7 @@ function runEvaluationScenario(
   const seMin = sleepEnd.split(':').reduce((h, m) => Number(h) * 60 + Number(m), 0);
 
   console.log(`\n--- Evaluación: ${label} ---`);
-  console.log(`  Sleep: ${sleepStart} - ${sleepEnd}, Cada: ${frequencyHours}h`);
+  console.log(`  Sueño: ${sleepStart} - ${sleepEnd}, Frecuencia: ${frequencyHours}h`);
 
   let bestScore = Infinity;
   let bestTimes: number[] = [];
@@ -76,11 +76,11 @@ function runEvaluationScenario(
   }
 
   console.log(`  Mejor score: ${bestScore}`);
-  console.log(`  Mejores start times: ${bestTimes.map(minutesToTime).join(', ')}`);
+  console.log(`  Mejores horarios de inicio: ${bestTimes.map(minutesToTime).join(', ')}`);
 }
 
 console.log('==================================');
-console.log('  SMART SCHEDULE ALGORITHM TEST');
+console.log('  TEST DEL ALGORITMO SMART SCHEDULE');
 console.log('==================================');
 
 runScenario('Escenario A', '23:00', '07:00', 8, 5);

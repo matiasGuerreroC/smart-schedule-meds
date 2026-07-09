@@ -21,11 +21,11 @@ interface Props {
 }
 
 const FREQUENCY_OPTIONS = [
-  { label: 'Every 4 hours', value: 4 },
-  { label: 'Every 6 hours', value: 6 },
-  { label: 'Every 8 hours', value: 8 },
-  { label: 'Every 12 hours', value: 12 },
-  { label: 'Once daily', value: 24 },
+  { label: 'Cada 4 horas', value: 4 },
+  { label: 'Cada 6 horas', value: 6 },
+  { label: 'Cada 8 horas', value: 8 },
+  { label: 'Cada 12 horas', value: 12 },
+  { label: 'Una vez al día', value: 24 },
 ];
 
 function minutesToTimeDisplay(minutes: number): string {
@@ -153,15 +153,15 @@ export default function AddMedicationScreen({ onNavigateBack }: Props) {
         keyboardShouldPersistTaps="handled"
       >
         <View style={styles.header}>
-          <Text style={styles.title}>Add New Treatment</Text>
+          <Text style={styles.title}>Nuevo Tratamiento</Text>
           <Text style={styles.subtitle}>
-            Configure your medication schedule for optimal adherence.
+            Configura tu medicación para un programa óptimo de adherencia.
           </Text>
         </View>
 
         <View style={styles.formCard}>
           <View style={styles.field}>
-            <Text style={styles.label}>Medication Name</Text>
+            <Text style={styles.label}>Nombre del Medicamento</Text>
             <View style={styles.inputContainer}>
               <MaterialIcons
                 name="medication"
@@ -171,7 +171,7 @@ export default function AddMedicationScreen({ onNavigateBack }: Props) {
               />
               <TextInput
                 style={styles.input}
-                placeholder="e.g., Ibuprofen"
+                placeholder="ej. Ibuprofeno"
                 placeholderTextColor={colors.outline}
                 value={name}
                 onChangeText={setName}
@@ -181,14 +181,14 @@ export default function AddMedicationScreen({ onNavigateBack }: Props) {
 
           <View style={styles.fieldRow}>
             <View style={[styles.field, { flex: 1 }]}>
-              <Text style={styles.label}>Frequency</Text>
+              <Text style={styles.label}>Frecuencia</Text>
               <TouchableOpacity
                 style={styles.pickerButton}
                 onPress={() => setShowFrequencyPicker(!showFrequencyPicker)}
               >
                 <Text style={styles.pickerText}>
                   {FREQUENCY_OPTIONS.find((f) => f.value === frequency)
-                    ?.label || 'Select'}
+                    ?.label || 'Seleccionar'}
                 </Text>
                 <MaterialIcons
                   name="expand-more"
@@ -226,11 +226,11 @@ export default function AddMedicationScreen({ onNavigateBack }: Props) {
               )}
             </View>
             <View style={[styles.field, { flex: 1 }]}>
-              <Text style={styles.label}>Duration (Days)</Text>
+              <Text style={styles.label}>Duración (Días)</Text>
               <View style={styles.inputRow}>
                 <TextInput
                   style={styles.input}
-                  placeholder="e.g., 5"
+                  placeholder="ej. 5"
                   placeholderTextColor={colors.outline}
                   keyboardType="number-pad"
                   value={duration}
@@ -252,7 +252,7 @@ export default function AddMedicationScreen({ onNavigateBack }: Props) {
               color={colors.primary}
             />
             <Text style={styles.previewTitle}>
-              Calculated Smart Schedule Preview
+              Vista Previa del Programa Inteligente
             </Text>
           </View>
 
@@ -276,7 +276,7 @@ export default function AddMedicationScreen({ onNavigateBack }: Props) {
                   !canPreview && styles.calculateButtonTextDisabled,
                 ]}
               >
-                Preview Schedule
+                Vista Previa
               </Text>
             </TouchableOpacity>
           )}
@@ -322,7 +322,7 @@ export default function AddMedicationScreen({ onNavigateBack }: Props) {
                           {formatDoseTime(dose.scheduledTime)}
                         </Text>
                         <Text style={styles.previewDoseLabel}>
-                          Dose {index + 1}
+                          Dosis {index + 1}
                         </Text>
                       </View>
                       {isBoundary && (
@@ -333,13 +333,13 @@ export default function AddMedicationScreen({ onNavigateBack }: Props) {
                             color={colors.onPrimaryContainer}
                           />
                           <Text style={styles.badgeSleepBoundaryText}>
-                            Optimized: Sleep Boundary
+                            Optimizado: Borde de Sueño
                           </Text>
                         </View>
                       )}
                       {!isBoundary && !isInSleep && (
                         <View style={styles.badgeNormal}>
-                          <Text style={styles.badgeNormalText}>Wake Hours</Text>
+                          <Text style={styles.badgeNormalText}>Horas de Vigilia</Text>
                         </View>
                       )}
                     </View>
@@ -348,7 +348,7 @@ export default function AddMedicationScreen({ onNavigateBack }: Props) {
               })}
               {preview.length > 10 && (
                 <Text style={styles.moreText}>
-                  +{preview.length - 10} more doses
+                  +{preview.length - 10} dosis más
                 </Text>
               )}
             </View>
@@ -361,7 +361,7 @@ export default function AddMedicationScreen({ onNavigateBack }: Props) {
           style={styles.backActionButton}
           onPress={onNavigateBack}
         >
-          <Text style={styles.backActionText}>Back</Text>
+          <Text style={styles.backActionText}>Volver</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[
@@ -377,7 +377,7 @@ export default function AddMedicationScreen({ onNavigateBack }: Props) {
             color={colors.onPrimary}
           />
           <Text style={styles.confirmButtonText}>
-            {saving ? 'Saving...' : 'Confirm & Program Alarms'}
+            {saving ? 'Guardando...' : 'Confirmar y Programar Alarmas'}
           </Text>
         </TouchableOpacity>
       </View>
