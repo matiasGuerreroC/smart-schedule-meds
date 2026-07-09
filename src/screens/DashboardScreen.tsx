@@ -327,14 +327,6 @@ export default function DashboardScreen({
         </View>
       </ScrollView>
 
-      <TouchableOpacity
-        style={styles.fab}
-        onPress={onNavigateAddMedication}
-        activeOpacity={0.9}
-      >
-        <MaterialIcons name="add" size={28} color={colors.onPrimary} />
-      </TouchableOpacity>
-
       <View style={styles.bottomNav}>
         <View style={styles.navItemActive}>
           <MaterialIcons name="calendar-today" size={22} color={colors.onPrimaryContainer} />
@@ -353,6 +345,14 @@ export default function DashboardScreen({
           <Text style={styles.navLabel}>Salud</Text>
         </View>
       </View>
+
+      <TouchableOpacity
+        style={styles.fab}
+        onPress={onNavigateAddMedication}
+        activeOpacity={0.9}
+      >
+        <MaterialIcons name="add" size={28} color={colors.onPrimary} />
+      </TouchableOpacity>
     </View>
   );
 }
@@ -636,7 +636,7 @@ const styles = StyleSheet.create({
   },
   fab: {
     position: 'absolute',
-    bottom: 80,
+    bottom: 130,
     right: spacing.gutter,
     width: 56,
     height: 56,
@@ -648,7 +648,8 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
     shadowRadius: 8,
-    elevation: 6,
+    elevation: 10,
+    zIndex: 100,
   },
   bottomNav: {
     position: 'absolute',
